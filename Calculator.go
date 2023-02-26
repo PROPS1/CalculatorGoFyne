@@ -53,7 +53,10 @@ func main() {
 			answer.SetText(fmt.Sprintf("%v/%v=%v", number1, number2, number1/number2))
 		}
 	})
-
-	w.SetContent(container.NewVBox(entry1, entry2, button1, button2, button3, button4, answer))
+	w.SetContent(container.NewGridWithRows(3,
+		container.NewGridWithColumns(2, entry1, entry2),
+		container.NewVBox(answer),
+		container.NewGridWithColumns(4, button1, button2, button3, button4),
+	))
 	w.ShowAndRun()
 }
